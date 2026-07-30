@@ -20,22 +20,26 @@ flowchart LR
         C2[LoadGeneratorDemo threads]
     end
 
-    subgraph MatchingEngine [MatchingEngine - ConcurrentHashMap symbol to SymbolEngine]
-        SE1[SymbolEngine BTCUSD]
-        SE2[SymbolEngine ETHUSD]
-        SE3[SymbolEngine AAPL]
+    ME[MatchingEngine<br/>ConcurrentHashMap symbol to SymbolEngine]
+
+    C1 -- submit order --> ME
+    C2 -- submit order --> ME
+
+    subgraph SG1 [SymbolEngine BTCUSD]
+        Q1[ArrayBlockingQueue mailbox] --> W1((virtual thread))
     end
 
-    C1 -- submit order --> MatchingEngine
-    C2 -- submit order --> MatchingEngine
-    MatchingEngine -- routes by symbol --> SE1
-    MatchingEngine -- routes by symbol --> SE2
-    MatchingEngine -- routes by symbol --> SE3
+    subgraph SG2 [SymbolEngine ETHUSD]
+        Q2[ArrayBlockingQueue mailbox] --> W2((virtual thread))
+    end
 
-    SE1 -->|ArrayBlockingQueue mailbox| W1((virtual thread))
+    SE3[SymbolEngine AAPL, etc.]
+
+    ME -- routes by symbol --> Q1
+    ME -- routes by symbol --> Q2
+    ME -- routes by symbol --> SE3
+
     W1 --> OB1[OrderBook BTCUSD - no locks]
-
-    SE2 -->|ArrayBlockingQueue mailbox| W2((virtual thread))
     W2 --> OB2[OrderBook ETHUSD - no locks]
 ```
 

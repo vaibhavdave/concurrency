@@ -19,14 +19,15 @@ Lock state machine for `ReentrantReadWriteLock`:
 
 ```mermaid
 stateDiagram-v2
+    direction LR
     [*] --> Unlocked
     Unlocked --> ReadLocked: readLock().lock()
-    ReadLocked --> ReadLocked: another reader locks (count++)
+    ReadLocked --> ReadLocked: reader locks (count++)
     ReadLocked --> Unlocked: last reader unlocks
     Unlocked --> WriteLocked: writeLock().lock()
     WriteLocked --> Unlocked: writeLock().unlock()
-    ReadLocked --> WriteLocked: blocked until all readers release
-    WriteLocked --> ReadLocked: blocked until writer releases
+    ReadLocked --> WriteLocked: readers still holding
+    WriteLocked --> ReadLocked: writer still holding
 ```
 
 `StampedLock` optimistic-read flow:
