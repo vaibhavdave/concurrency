@@ -12,15 +12,16 @@ A `Thread` in the JVM is a thin wrapper around an OS-scheduled thread. Its lifec
 
 ```mermaid
 stateDiagram-v2
+    direction LR
     [*] --> NEW: new Thread(...)
     NEW --> RUNNABLE: start()
     RUNNABLE --> TERMINATED: run() returns
-    RUNNABLE --> BLOCKED: waiting to enter a synchronized block/method
+    RUNNABLE --> BLOCKED: enter synchronized
     BLOCKED --> RUNNABLE: monitor acquired
-    RUNNABLE --> WAITING: wait() / join() / LockSupport.park()
-    WAITING --> RUNNABLE: notify()/notifyAll() / joined thread finished / unpark()
-    RUNNABLE --> TIMED_WAITING: sleep(ms) / wait(ms) / join(ms)
-    TIMED_WAITING --> RUNNABLE: timeout elapses or woken early
+    RUNNABLE --> WAITING: wait()/join()/park()
+    WAITING --> RUNNABLE: notified/joined/unparked
+    RUNNABLE --> TIMED_WAITING: sleep(ms)/timed wait
+    TIMED_WAITING --> RUNNABLE: timeout or woken early
     TERMINATED --> [*]
 ```
 

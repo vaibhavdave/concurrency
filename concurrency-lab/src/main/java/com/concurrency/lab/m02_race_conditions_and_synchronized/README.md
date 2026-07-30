@@ -30,10 +30,10 @@ sequenceDiagram
     participant C as Consumer
     P->>B: synchronized put()
     Note over B: while (full) wait()
-    P->>B: addLast(item); notifyAll()
+    P->>B: addLast(item), notifyAll()
     C->>B: synchronized take()
     Note over B: while (empty) wait()
-    C->>B: removeFirst(); notifyAll()
+    C->>B: removeFirst(), notifyAll()
 ```
 
 The `while` (not `if`) around the wait condition is mandatory: `wait()` can return due to a *spurious wakeup* even without a matching `notify()`, so the condition must always be re-checked after waking up.
