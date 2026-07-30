@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.5</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.concurrency</groupId>
+    <artifactId>concurrency-curriculum</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>Concurrency Curriculum</name>
+    <description>
+        A hands-on curriculum for multithreading, atomic operations, locking and
+        building highly concurrent, high-performance applications in Java, built
+        on Spring Boot. Each module is an isolated, runnable, tested demonstration
+        of one concurrency concept, progressing from fundamentals to advanced
+        lock-free and reactive techniques.
+    </description>
+
+    <modules>
+        <module>concurrency-lab</module>
+        <module>benchmarks</module>
+    </modules>
+
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <awaitility.version>4.2.2</awaitility.version>
+        <jmh.version>1.37</jmh.version>
+    </properties>
+</project>
