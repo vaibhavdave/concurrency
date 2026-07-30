@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: concurrency-lab
+  threads:
+    virtual:
+      enabled: false # flipped to true inside the m14 virtual-threads module demos
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,threaddump,env
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.concurrency.lab: INFO
