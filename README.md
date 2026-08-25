@@ -152,8 +152,9 @@ java -jar benchmarks/target/benchmarks.jar
 
 ## 📝 Interview Prep
 
-Planning a condensed, one-day-revision guide covering every module's concepts
-with a handful of key examples each — see [`INTERVIEW_PREP_PLAN.md`](INTERVIEW_PREP_PLAN.md).
+Planning a condensed, one-day-revision guide under `docs/` — one file per
+module covering its concepts with a handful of key examples each — see
+[`INTERVIEW_PREP_PLAN.md`](INTERVIEW_PREP_PLAN.md).
 
 ## 🔗 Further Reading
 - Brian Goetz et al., *Java Concurrency in Practice* — still the definitive book on this subject.
