@@ -150,6 +150,11 @@ java -jar benchmarks/target/benchmarks.jar
 4. Read the tests — they're the executable proof of the README's claims, and a template for how to test concurrent code deterministically (latches and Awaitility, not `Thread.sleep` and hope).
 5. Once you've been through M01–M17, read the [capstone](concurrency-lab/src/main/java/com/concurrency/lab/capstone_order_matching_engine/README.md) — it's a table mapping *every* design decision in a real system back to the module that taught it.
 
+## 📝 Interview Prep
+
+Planning a condensed, one-day-revision guide covering every module's concepts
+with a handful of key examples each — see [`INTERVIEW_PREP_PLAN.md`](INTERVIEW_PREP_PLAN.md).
+
 ## 🔗 Further Reading
 - Brian Goetz et al., *Java Concurrency in Practice* — still the definitive book on this subject.
 - [The Java Language Specification, Chapter 17 (Threads and Locks)](https://docs.oracle.com/javase/specs/jls/se21/html/jls-17.html) — the actual Java Memory Model.
