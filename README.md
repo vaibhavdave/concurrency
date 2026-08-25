@@ -152,8 +152,9 @@ java -jar benchmarks/target/benchmarks.jar
 
 ## 📝 Interview Prep
 
-Planning a condensed, one-day-revision guide under `docs/` — one file per
-module covering its concepts with a handful of key examples each — see
+Planning a `docs/` guide, one file per module, built for long-term retention
+— mental models, worked examples, and misconceptions explained from first
+principles rather than a quick-skim cheat sheet — see
 [`INTERVIEW_PREP_PLAN.md`](INTERVIEW_PREP_PLAN.md).
 
 ## 🔗 Further Reading
